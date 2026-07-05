@@ -1,0 +1,50 @@
+site_name: slapshot
+site_description: A synchronous and asynchronous client for the unofficial NHL API
+repo_url: https://github.com/braycarlson/slapshot
+repo_name: braycarlson/slapshot
+docs_dir: docs
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  features:
+    - content.code.copy
+    - navigation.sections
+    - navigation.top
+    - navigation.tracking
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+nav:
+  - Home: index.md
+  - Setup:
+      - Installation: setup/installation.md
+      - Quickstart: setup/quickstart.md
+  - Reference:
+      - Client: reference/client.md
+      - Resources: reference/resources.md
+      - Models: reference/models.md
+      - Enums: reference/enums.md
+      - Errors: reference/errors.md
+      - Raw Requests: reference/raw_requests.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences

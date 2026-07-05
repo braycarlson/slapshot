@@ -1,8 +1,7 @@
-# aionhl
+# slapshot
 *.bat
 *.pkl
 *.zip
-endpoints.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -74,8 +73,8 @@ instance/
 # Scrapy stuff:
 .scrapy
 
-# Sphinx documentation
-docs/_build/
+# MkDocs documentation
+site/
 
 # PyBuilder
 .pybuilder/
@@ -116,6 +115,9 @@ venv.bak/
 
 # mkdocs documentation
 /site
+
+# ruff
+.ruff_cache/
 
 # mypy
 .mypy_cache/

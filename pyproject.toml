@@ -1,0 +1,78 @@
+[build-system]
+requires = ['uv_build>=0.7.13,<0.8']
+build-backend = 'uv_build'
+
+[project]
+name = 'slapshot'
+version = '0.1.0'
+description = 'A synchronous and asynchronous client for the unofficial NHL API'
+readme = 'README.md'
+license = 'MIT'
+license-files = ['LICENSE']
+authors = [
+    { name = 'Brayden Carlson', email = 'braycarlson@hotmail.com' },
+]
+requires-python = '>=3.11'
+keywords = ['nhl', 'hockey', 'api', 'client', 'async']
+dependencies = [
+    'httpx>=0.28.1',
+    'msgspec>=0.21.1',
+    'typing-extensions>=4.16.0',
+]
+classifiers = [
+    'Development Status :: 4 - Beta',
+    'Framework :: AsyncIO',
+    'Intended Audience :: Developers',
+    'Natural Language :: English',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3 :: Only',
+    'Topic :: Internet',
+    'Topic :: Software Development :: Libraries',
+    'Topic :: Software Development :: Libraries :: Python Modules',
+    'Topic :: Utilities',
+]
+
+[project.urls]
+Homepage = 'https://github.com/braycarlson/slapshot'
+Repository = 'https://github.com/braycarlson/slapshot'
+Issues = 'https://github.com/braycarlson/slapshot/issues'
+
+[dependency-groups]
+dev = [
+    'pytest>=8.0.0',
+    'pytest-asyncio>=1.4.0',
+    'pytest-cov>=7.1.0',
+    'ruff>=0.15.20',
+    'ty>=0.0.56',
+]
+
+[tool.uv.build-backend]
+module-name = 'slapshot'
+module-root = ''
+
+[tool.pytest.ini_options]
+minversion = '8.0'
+testpaths = ['tests']
+addopts = '-ra --strict-markers --strict-config -m "not network"'
+asyncio_mode = 'auto'
+markers = [
+    'network: hits the live NHL API over the network (deselected by default; run with -m network)',
+]
+
+[tool.coverage.run]
+source = ['slapshot']
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+exclude_also = [
+    'if TYPE_CHECKING:',
+    '\.\.\.',
+    'raise NotImplementedError',
+]
+
+[tool.ty.environment]
+python-version = '3.11'
